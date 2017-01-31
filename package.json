@@ -1,0 +1,76 @@
+{
+  "name": "preloadfill",
+  "version": "0.0.0",
+  "description": "A polyfill for the preload link type",
+  "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)",
+  "license": "CC0-1.0",
+  "repository": "jonathantneal/preloadfill",
+  "homepage": "https://github.com/jonathantneal/preloadfill#readme",
+  "bugs": "https://github.com/jonathantneal/preloadfill/issues",
+  "main": "index.js",
+  "jsnext:main": "index.es6",
+  "files": [
+    "index.es6",
+    "index.js"
+  ],
+  "scripts": {
+    "build": "babel index.es6 --out-file index.js",
+    "clean": "git clean -X -d -f",
+    "pre-commit": "echo 'Running pre-commit checks...' && exit 0",
+    "prepublish": "npm run test && npm run build",
+    "test": "npm run test:ec && npm run test:es",
+    "test:ec": "echint",
+    "test:es": "eslint index.es6"
+  },
+  "engines": {
+    "node": ">=4.5.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-env": "^1.1.8",
+    "echint": "^3.0.0",
+    "echint-config-dev": "^1.0.0",
+    "eslint": "^3.8.1",
+    "eslint-config-dev": "^1.0.0",
+    "pre-commit": "^1.2.2"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "loose": true
+        }
+      ]
+    ]
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "echint": {
+    "extends": "dev"
+  },
+  "eslintConfig": {
+    "extends": "dev"
+  },
+  "pre-commit": [
+    "pre-commit",
+    "test"
+  ],
+  "keywords": [
+    "document",
+    "dom",
+    "load",
+    "loaded",
+    "loading",
+    "preload",
+    "preloaded",
+    "preloading",
+    "link",
+    "rel",
+    "as",
+    "script",
+    "style",
+    "polyfill"
+  ]
+}
